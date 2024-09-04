@@ -6,7 +6,16 @@
     <description>Recent content in Posts on BigEatie&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bigeatie.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bigeatie.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Test Post</title>
+      <link>https://bigeatie.com/posts/howtohugo/</link>
+      <pubDate>Tue, 03 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://bigeatie.com/posts/howtohugo/</guid>
+      <description>This is just a test post Test.</description>
+    </item>
+    
     <item>
       <title>Advanced Filtering of Chess Databases with pgn-extract</title>
       <link>https://bigeatie.com/posts/pgn-extract/</link>
