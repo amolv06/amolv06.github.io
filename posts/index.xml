@@ -4,16 +4,17 @@
     <title>Posts on BigEatie&#39;s Blog</title>
     <link>https://bigeatie.com/posts/</link>
     <description>Recent content in Posts on BigEatie&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 -0500</lastBuildDate>
-    <atom:link href="https://bigeatie.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://bigeatie.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advanced Filtering of Chess Databases with pgn-extract</title>
       <link>https://bigeatie.com/posts/pgn-extract/</link>
-      <pubDate>Thu, 29 Aug 2024 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://bigeatie.com/posts/pgn-extract/</guid>
       <description>Introduction Serious Chess players often rely on databases containing millions of games to enhance their studies. These databases are invaluable for studying openings, where a user can enter an exact sequence of moves to reach the position they want to analyze. Chess databases can filter based on such opening sequences with ease. However, when it comes to filtering based on criteria outside of the opening, such as games where there are more than eight minor pieces on the board, games that end in Anastasia&amp;rsquo;s mate, or games where advanced players tackle difficult rook and pawn endings your typical database falls short without external tools.</description>
     </item>
+    
   </channel>
 </rss>
