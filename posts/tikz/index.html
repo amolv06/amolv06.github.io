@@ -30,7 +30,7 @@
 </div>
 
 <main>
-<p>If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with <code>org-latex-preview</code>. Unfortunately Emacs does not do this very well out of the box. I don&rsquo;t fully understand why. At least <a href="https://www.reddit.com/r/orgmode/comments/xxabty/TikZ_circuits_not_showing_in_orglatexpreview/irbd255/">one reddit comment</a> suggests that this is because the default program used to generate LaTeX previews, dvipng, does not work well with TikZ. Fortunately, it seems like dvisvgm does work nicely with TikZ. Once you have that installed, dropping the following snippet into your config should get LaTeX previews working.</p>
+<p>If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with <code>org-latex-preview</code>. Unfortunately Emacs does not handle this very well out of the box. The reason for this is not entirely clear to me. However, <a href="https://www.reddit.com/r/orgmode/comments/xxabty/TikZ_circuits_not_showing_in_orglatexpreview/irbd255/">one reddit comment</a> suggests this is because the default program used to generate LaTeX previews, <code>dvipng</code>, does not work well with TikZ. Fortunately, <code>dvisvgm</code> seems to handle TikZ more effectively. Once you have <code>dvisvgm</code> installed, adding the following snippet into your configuration file should get LaTeX previews working as expected.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">setq</span> <span style="color:#000">org-preview-latex-process-alist</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ce5c00;font-weight:bold">&#39;</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">dvisvgm</span> <span style="color:#204a87">:programs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;latex&#34;</span> <span style="color:#4e9a06">&#34;dvisvgm&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:description</span> <span style="color:#4e9a06">&#34;dvi &gt; svg&#34;</span>
@@ -46,13 +46,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;&#34;</span> <span style="color:#4e9a06">&#34;tikz-cd&#34;</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">)))</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">setq</span> <span style="color:#000">org-latex-create-formula-image-program</span> <span style="color:#4e9a06">&#39;dvisvgm</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>The <code>image-size-adjust</code> parameters above work well for me, but feel free to adjust to your liking, of course.</p>
-<p>You can test whether the preview works now. If you need a snippet to test, you can use the following.</p>
+</span></span></code></pre></div><p>The <code>image-size-adjust</code> parameters in the snipper above work well for me, but feel free to adjust to your liking.</p>
+<p>You can test whether the preview works now. If you need a sample TikZ snippet to try, here&rsquo;s one you can use.</p>
 <pre tabindex="0"><code class="language-nil" data-lang="nil">\begin{tikzcd}
 F \arrow[r] &amp; E \arrow[d, &#34;\pi&#34;] \\
             &amp; M
 \end{tikzcd}
-</code></pre><p>Here&rsquo;s a video showing how both the before and after of this snippet should look.</p>
+</code></pre><p>Here&rsquo;s a video showing how TikZ previews look both before and after adding the above snippet to your configuration.</p>
 <video width="960" height="490" controls>
   <source src="/images/TikzPreview.mp4" type="video/mp4">
   Your browser does not support the video tag.

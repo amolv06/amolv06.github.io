@@ -13,7 +13,7 @@
       <pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://bigeatie.com/posts/tikz/</guid>
-      <description>If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with org-latex-preview. Unfortunately Emacs does not do this very well out of the box. I don&amp;rsquo;t fully understand why. At least one reddit comment suggests that this is because the default program used to generate LaTeX previews, dvipng, does not work well with TikZ. Fortunately, it seems like dvisvgm does work nicely with TikZ.</description>
+      <description>If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with org-latex-preview. Unfortunately Emacs does not handle this very well out of the box. The reason for this is not entirely clear to me. However, one reddit comment suggests this is because the default program used to generate LaTeX previews, dvipng, does not work well with TikZ.</description>
     </item>
     
     <item>
