@@ -3,7 +3,7 @@
 #+hugo_tags: Emacs OrgMode LaTeX
 #+DATE: <2024-09-14 Thu>
 
-If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with ~org-latex-preview~. Unfortunately Emacs does not do this very well out of the box. I don't fully understand why. At least [[https://www.reddit.com/r/orgmode/comments/xxabty/TikZ_circuits_not_showing_in_orglatexpreview/irbd255/][one reddit comment]] suggests that this is because the default program used to generate LaTeX previews, dvipng, does not work well with TikZ. Fortunately, it seems like dvisvgm does work nicely with TikZ. Once you have that installed, dropping the following snippet into your config should get LaTeX previews working.
+If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with ~org-latex-preview~. Unfortunately Emacs does not handle this very well out of the box. The reason for this is not entirely clear to me. However, [[https://www.reddit.com/r/orgmode/comments/xxabty/TikZ_circuits_not_showing_in_orglatexpreview/irbd255/][one reddit comment]] suggests this is because the default program used to generate LaTeX previews, ~dvipng~, does not work well with TikZ. Fortunately, ~dvisvgm~ seems to handle TikZ more effectively. Once you have ~dvisvgm~ installed, adding the following snippet into your configuration file should get LaTeX previews working as expected.
 
 #+BEGIN_SRC elisp
   (setq org-preview-latex-process-alist
@@ -23,9 +23,9 @@ If you use LaTeX within org-mode you may come across a situation where you would
   (setq org-latex-create-formula-image-program 'dvisvgm)
 #+END_SRC
 
-The ~image-size-adjust~ parameters above work well for me, but feel free to adjust to your liking, of course.
+The ~image-size-adjust~ parameters in the snipper above work well for me, but feel free to adjust to your liking.
 
-You can test whether the preview works now. If you need a snippet to test, you can use the following.
+You can test whether the preview works now. If you need a sample TikZ snippet to try, here's one you can use.
 
 #+BEGIN_SRC
 \begin{tikzcd}
@@ -34,7 +34,7 @@ F \arrow[r] & E \arrow[d, "\pi"] \\
 \end{tikzcd}
 #+END_SRC
 
-Here's a video showing how both the before and after of this snippet should look.
+Here's a video showing how TikZ previews look both before and after adding the above snippet to your configuration.
 
 #+BEGIN_EXPORT html
     <video width="960" height="490" controls>
