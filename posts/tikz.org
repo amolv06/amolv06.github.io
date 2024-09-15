@@ -27,10 +27,13 @@ The ~image-size-adjust~ parameters above work well for me, but feel free to adju
 
 You can test whether the preview works now. If you need a snippet to test, you can use the following.
 
-#+BEGIN_EXAMPLE
+#+BEGIN_SRC
 \begin{tikzcd}
 F \arrow[r] & E \arrow[d, "\pi"] \\
             & M
 \end{tikzcd}
-#+END_EXAMPLE
+#+END_SRC
 
+Here's a video showing how both the before and after of this snippet should look.
+
+[[file:./images/TikzPreview.mp4]]
