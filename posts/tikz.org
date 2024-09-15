@@ -1,4 +1,4 @@
-#+TITLE: TikZ Images in Org-Preview
+#+TITLE: TikZ Images in org-latex-preview
 #+hugo_base_dir: ../
 #+hugo_tags: Emacs OrgMode LaTeX
 #+DATE: <2024-09-14 Thu>
