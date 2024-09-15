@@ -36,4 +36,9 @@ F \arrow[r] & E \arrow[d, "\pi"] \\
 
 Here's a video showing how both the before and after of this snippet should look.
 
-[[file:./images/TikzPreview.mp4]]
+#+BEGIN_EXPORT html
+    <video width="960" height="490" controls>
+      <source src="/images/TikzPreview.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+#+END_EXPORT
