@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TikZ Images in Org-Preview | BigEatie&#39;s Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">TikZ Images in Org-Preview</span></h1>
+
+<h2 class="date">2024/09/14</h2>
+</div>
+
+<main>
+<p>If you use LaTeX within org-mode you may come across a situation where you would like to embed TikZ diagrams and have Emacs preview them with <code>org-latex-preview</code>. Unfortunately Emacs does not do this very well out of the box. I don&rsquo;t fully understand why. At least <a href="https://www.reddit.com/r/orgmode/comments/xxabty/TikZ_circuits_not_showing_in_orglatexpreview/irbd255/">one reddit comment</a> suggests that this is because the default program used to generate LaTeX previews, dvipng, does not work well with TikZ. Fortunately, it seems like dvisvgm does work nicely with TikZ. Once you have that installed, dropping the following snippet into your config should get LaTeX previews working.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">setq</span> <span style="color:#000">org-preview-latex-process-alist</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ce5c00;font-weight:bold">&#39;</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">dvisvgm</span> <span style="color:#204a87">:programs</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;latex&#34;</span> <span style="color:#4e9a06">&#34;dvisvgm&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:description</span> <span style="color:#4e9a06">&#34;dvi &gt; svg&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:message</span> <span style="color:#4e9a06">&#34;you need to install the programs: latex and dvisvgm.&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:image-input-type</span> <span style="color:#4e9a06">&#34;dvi&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:image-output-type</span> <span style="color:#4e9a06">&#34;svg&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:image-size-adjust</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1.7</span> <span style="color:#ce5c00;font-weight:bold">.</span> <span style="color:#0000cf;font-weight:bold">1.5</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:latex-compiler</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;latex -interaction nonstopmode -output-directory %o %f&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87">:image-converter</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;dvisvgm %f -n -b min -c %S --currentcolor -o %O&#34;</span><span style="color:#000;font-weight:bold">))))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">setq</span> <span style="color:#000">org-latex-packages-alist</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ce5c00;font-weight:bold">&#39;</span><span style="color:#000;font-weight:bold">((</span><span style="color:#4e9a06">&#34;&#34;</span> <span style="color:#4e9a06">&#34;tikz&#34;</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;&#34;</span> <span style="color:#4e9a06">&#34;tikz-cd&#34;</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">)))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">setq</span> <span style="color:#000">org-latex-create-formula-image-program</span> <span style="color:#4e9a06">&#39;dvisvgm</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>The <code>image-size-adjust</code> parameters above work well for me, but feel free to adjust to your liking, of course.</p>
+<p>You can test whether the preview works now. If you need a snippet to test, you can use the following.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>\begin{tikzcd}
+</span></span><span style="display:flex;"><span>F \arrow[r] &amp; E \arrow[d, &#34;\pi&#34;] \\
+</span></span><span style="display:flex;"><span>            &amp; M
+</span></span><span style="display:flex;"><span>\end{tikzcd}
+</span></span></code></pre></div>
+</main>
+
+  <footer>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
+
+<hr>
+
+Please send all comments to <a href= "malito:amolvaidya.signup@gmail.com">amolvaidya.signup@gmail.com</a> or <a href="https://fosstodon.org/@BigEatie/">Mastodon</a>.
+
+<style>
+  .craftering {
+	  margin: auto;
+	  width: 50%;
+	  text-align: center;}
+</style>
+
+<div class="craftering">
+  <a href="https://craftering.systemcrafters.net/@bigeatie/previous">←</a>  
+  <a href="https://craftering.systemcrafters.net/">craftering</a>  
+  <a href="https://craftering.systemcrafters.net/@bigeatie/next">→</a>
+</div>
+
+  
+  </footer>
+  </body>
+</html>
+
