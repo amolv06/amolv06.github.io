@@ -109,7 +109,7 @@ width=600 height=397 frameborder=0></iframe>
 </ul>
 <h3 id="example-2-anastasia-s-mate">Example 2: Anastasia&rsquo;s Mate</h3>
 <p>pgn-extract cannot, by itself, find games where Anastasia&rsquo;s Mate has been executed. However, I want to highlight a powerful flag that might help us identify positions where Anastasia&rsquo;s mate is possible.</p>
-<p>The Anastasia&rsquo;s mating pattern involves either a knight and rook or a knight and queen giving checkmate to a king trapped against the edge of the board on one side and a friendly pawn on the other. In its barest form, it looks like:</p>
+<p>The Anastasia&rsquo;s mating pattern involves either a knight and rook or a knight and queen giving checkmate to a king trapped against the edge of the board on one side and a friendly pawn on the other.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> In its barest form, it looks like:</p>
 <style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
 <div class="org-center">
 <iframe width="600" height="371" src="https://lichess.org/study/embed/o8bQslAB/hqri6OkU?theme=newspaper&bg=light" frameborder=0></iframe>
@@ -243,6 +243,9 @@ width=600 height=397 frameborder=0></iframe>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">start_time</span><span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>This does nothing other than read the game &ndash; no processing &ndash; and it still takes 138 seconds to run. This works out to a rate of 725 games per second. pgn-extract filters and everything, and is still nearly 20x faster than python-chess.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Since writing this post, I&rsquo;ve learned that Anastasia&rsquo;s Mate technically requires the checkmate to be delivered by a rook. However, I&rsquo;ve left the article unchanged, as it still demonstrates a useful feature of pgn-extract.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
