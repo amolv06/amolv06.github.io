@@ -215,4 +215,5 @@ print(time.time() - start_time)
 
 This does nothing other than read the game -- no processing -- and it still takes 138 seconds to run. This works out to a rate of 725 games per second. pgn-extract filters and everything, and is still nearly 20x faster than python-chess.
 
-[fn:2] Since writing this post, I've learned that Anastasia's Mate technically requires the checkmate to be delivered by a rook. However, I've left the article unchanged, as it still demonstrates a useful feature of pgn-extract.
+[fn:2] Since writing this post, I’ve learned that although this mating pattern can be achieved with a queen, it is technically only called Anastasia’s Mate when the checkmate is delivered by a rook. However, I’ve left the article unchanged, as it still demonstrates a useful feature of pgn-extract.
+
