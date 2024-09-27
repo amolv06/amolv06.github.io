@@ -23,7 +23,7 @@ If you use LaTeX within org-mode you may come across a situation where you would
   (setq org-latex-create-formula-image-program 'dvisvgm)
 #+END_SRC
 
-The ~image-size-adjust~ parameters in the snipper above work well for me, but feel free to adjust to your liking.
+The ~image-size-adjust~ parameters in the snippet above work well for me, but feel free to adjust to your liking.
 
 You can test whether the preview works now. If you need a sample TikZ snippet to try, here's one you can use.
 
@@ -34,11 +34,3 @@ F \arrow[r] & E \arrow[d, "\pi"] \\
 \end{tikzcd}
 #+END_SRC
 
-Here's a video showing how TikZ previews look both before and after adding the above snippet to your configuration.
-
-#+BEGIN_EXPORT html
-    <video width="960" height="490" controls>
-      <source src="/images/TikzPreview.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-#+END_EXPORT
